@@ -1,6 +1,6 @@
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("black.jpg");
+    background-image: url("layts.gif");
     background-size:fill;
     font-weight: bolder;
 }
@@ -23,7 +23,7 @@ h1{
 
 
 button{
-    width: 150px;
+    width: 200px;
     background: goldenrod;
     color: black;
     border-radius: 8px;

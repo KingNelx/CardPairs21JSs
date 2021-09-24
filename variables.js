@@ -7,9 +7,19 @@ let messageEl = document.getElementById("message-el")
 let sumEl = document.querySelector("#sum-el")
 let cardEl = document.querySelector(".cards-el")
 
+
+let player = {
+    name: "Player",
+    chips: 0,
+}
+
+
+let playerEl = document.querySelector("#player-el")
+playerEl.textContent = player.name + ": $ " + player.chips
+
 console.log(cards)
 function getRandomCard(){
-   let randomNumber =  Math.floor(Math.random() *13) + 1
+   let randomNumber =  Math.floor(Math.random() *6) + 1
    if(randomNumber > 10){
         return 10
    }else if (randomNumber === 1){
@@ -20,6 +30,8 @@ function getRandomCard(){
 }
 
 function start(){
+    player.chips = 0
+        playerEl.textContent = player.name + ": $ " + player.chips
     isAlive = true
     let firstCard = getRandomCard()
     let secondCard = getRandomCard()
@@ -31,17 +43,21 @@ function renderGame(){
     cardEl.textContent = "Cards: "
     for(let i = 0; i < cards.length; i++){
         cardEl.textContent += cards[i] + " "
+        sumEl.textContent = "Sum: " + sum
     }
-
-    sumEl.textContent = "Sum: " + sum
     if(sum <= 20){
         message = ("Do you want to draw a new card?")
-    }else if(sum === 21){
+        player.chips += 50
+        playerEl.textContent = player.name + ": $ " + player.chips
+
+    }else if(sum === 21){ 
         message= ("You hit a Pair of 21! , You Won !")
         has21Card = true
     }else{
         message = ("Your out of the game")
         isAlive = false
+        player.chips = 0
+        playerEl.textContent = player.name + ": $ " + player.chips
     }
     
     messageEl.textContent = message
@@ -49,11 +65,22 @@ function renderGame(){
 
 
 function newCard(){
-    let cardVar = getRandomCard()
-    sum += cardVar
-    cards.push(cardVar)
-    console.log(cards)
-    renderGame()
+
+    if(isAlive === true && has21Card === false){
+        let cardVar = getRandomCard()
+        sum += cardVar
+        cards.push(cardVar)
+        console.log(cards)
+        renderGame()
+    }
+}
+
+function rules(){
+
+    if(confirm("The Rules are Simple, Draw a card, get sum of 21 and you win, !")){
+    }
 }
 
  
+
+

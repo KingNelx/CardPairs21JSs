@@ -1,10 +1,14 @@
 body{
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    background-image: url("layts.gif");
-    background-size:fill;
-    font-weight: bolder;
+    
+    padding: 25px;
+    background: linear-gradient(to left, #3C3B3F, #605C3C); 
+    color: black;
+    font-size: 25px;
 }
-
+.dark-mode {
+    background: black;
+  }
 .askUser{
     text-align: center;
     color: white;
@@ -34,6 +38,5 @@ button{
     margin-bottom: 4px;
     margin-top: 4px;
 }
-
 
 

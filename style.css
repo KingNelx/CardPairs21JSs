@@ -25,7 +25,13 @@ h1{
     font-style: italic;
 }
 
-
+#developer{
+    font-style: oblique;
+    text-align: left;
+    font-size: 18px;
+    font-family: cursive;
+    color:cyan;
+}
 button{
     width: 200px;
     background: goldenrod;

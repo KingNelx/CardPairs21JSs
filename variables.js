@@ -8,17 +8,21 @@ let sumEl = document.querySelector("#sum-el")
 let cardEl = document.querySelector(".cards-el")
 
 
-let player = {
+let player = { // object of the player
     name: "Player",
     chips: 0,
 }
 
+function myFunction() {
+    var element = document.body;
+    element.classList.toggle("dark-mode");
+  }
 
 let playerEl = document.querySelector("#player-el")
 playerEl.textContent = player.name + ": $ " + player.chips
 
 console.log(cards)
-function getRandomCard(){
+function getRandomCard(){  // trigger random numbers
    let randomNumber =  Math.floor(Math.random() *6) + 1
    if(randomNumber > 10){
         return 10
@@ -28,6 +32,8 @@ function getRandomCard(){
        return randomNumber
    }
 }
+
+// when the player click start 2 random number cards will be given
 
 function start(){
     player.chips = 0
@@ -39,6 +45,7 @@ function start(){
     sum = firstCard + secondCard
     renderGame()
 }
+ 
 function renderGame(){
     cardEl.textContent = "Cards: "
     for(let i = 0; i < cards.length; i++){
@@ -72,6 +79,14 @@ function newCard(){
         cards.push(cardVar)
         console.log(cards)
         renderGame()
+    }else{
+        noMoreDraw()
+    }
+}
+
+function noMoreDraw(){
+    if(confirm(" You Lose, You can not Draw more cards . ")){
+
     }
 }
 
